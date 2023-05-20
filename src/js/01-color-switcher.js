@@ -8,6 +8,7 @@ let timerId = null;
 
 refs.startBtn.addEventListener('click', onStartBtnChangeColor);
 refs.stopBtn.addEventListener('click', onStopBtnChangeColor);
+refs.stopBtn.disabled = true;
 
 function onStartBtnChangeColor() {
     timerId = setInterval(() => {
@@ -15,11 +16,14 @@ function onStartBtnChangeColor() {
     }, 1000);
 
     refs.startBtn.disabled = true;
+    refs.stopBtn.disabled = false;
 };
 
 function onStopBtnChangeColor() {
     clearInterval(timerId);
+
     refs.startBtn.disabled = false;
+    refs.stopBtn.disabled = true;
 };
 
 function getRandomHexColor() {
