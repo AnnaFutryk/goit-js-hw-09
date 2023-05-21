@@ -26,12 +26,13 @@ function onStart(event) {
       });
     
   }
+  setTimeout(() => { event.target.form.reset() }, 3000)
 }
 
 function createPromise(position, delay) {
   return new Promise((resolve, reject) => {
     const shouldResolve = Math.random() > 0.3;
-  
+    
     setTimeout(() => {
       if (shouldResolve) {
         resolve({ position, delay });
@@ -40,6 +41,7 @@ function createPromise(position, delay) {
       }
     }, delay);
   });
+  
 }; 
 
 
